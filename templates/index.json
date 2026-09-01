@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Aura by MS",
+        "heading": "Discover Your Signature Aura",
+        "lede": "Eight eaux de parfum in one black-and-gold flacon, and a separate collection of timepieces.",
+        "button_label": "Shop perfumes",
+        "button_link": "/collections/perfumes",
+        "button_2_label": "Shop watches",
+        "button_2_link": "/collections/watches"
+      }
+    },
+    "marquee": { "type": "marquee", "settings": { "text": "Eau de Parfum  ·  Black fluted glass  ·  Gold collar  ·  Timepieces  ·  Aura by MS  ·  " } },
+    "featured": { "type": "featured-collection", "settings": { "eyebrow": "The house edit", "heading": "Featured perfumes", "collection_handle": "perfumes", "link_label": "Shop all perfumes", "limit": 4 } },
+    "split": {
+      "type": "collection-split",
+      "blocks": {
+        "perfumes": { "type": "panel", "settings": { "eyebrow": "The collection", "title": "Perfumes", "text": "A scalable line of eaux de parfum.", "cta": "Enter the collection", "link": "/collections/perfumes", "fallback": "perfume" } },
+        "watches": { "type": "panel", "settings": { "eyebrow": "A separate house", "title": "Watches", "text": "Automatic, chronograph, dress, and skeleton pieces.", "cta": "Explore timepieces", "link": "/collections/watches", "fallback": "watches" } }
+      },
+      "block_order": ["perfumes", "watches"]
+    },
+    "new": { "type": "featured-collection", "settings": { "eyebrow": "Just released", "heading": "New arrivals", "collection_handle": "new-arrivals", "link_label": "View new arrivals", "limit": 4 } },
+    "house": { "type": "house-band", "settings": { "eyebrow": "The house", "heading": "One flacon. A thousand midnights.", "text": "Aura by MS is a private house of fragrance and time.", "button_label": "Read the story", "button_link": "/pages/about" } },
+    "bestsellers": { "type": "featured-collection", "settings": { "eyebrow": "Most coveted", "heading": "Best sellers", "collection_handle": "best-sellers", "link_label": "View best sellers", "limit": 4 } }
+  },
+  "order": ["hero", "marquee", "featured", "split", "new", "house", "bestsellers"]
+}
