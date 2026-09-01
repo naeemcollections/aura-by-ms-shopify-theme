@@ -1,0 +1,13 @@
+{% assign current = product.selected_or_first_available_variant %}
+<div class="modal-grid">
+  <div class="modal-media">{% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 900 }}" alt="">{% endif %}</div>
+  <div class="modal-copy">
+    <h2>{{ product.title }}</h2>
+    <p class="product-price">{{ current.price | money }}</p>
+    <button class="btn" type="button" data-add-to-cart="{{ current.id }}">Add to cart</button>
+    <a class="section-link" href="{{ product.url }}">View full details</a>
+  </div>
+</div>
+{% schema %}
+{ "name": "Quick view", "settings": [] }
+{% endschema %}

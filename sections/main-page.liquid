@@ -1,0 +1,9 @@
+<article class="page-prose">
+  <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+  <h1>{{ page.title }}</h1>
+  <div class="gold-rule"></div>
+  <div class="body rte">{{ page.content }}</div>
+</article>
+{% schema %}
+{ "name": "Page", "settings": [{ "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The house" }] }
+{% endschema %}

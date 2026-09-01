@@ -1,0 +1,19 @@
+<section class="page-prose">
+  <p class="eyebrow">Contact</p>
+  <h1>Write to the house</h1>
+  {% form 'contact' %}
+    {% if form.posted_successfully? %}
+      <p>Thank you. We will be in touch.</p>
+    {% else %}
+      <div style="margin-top:2rem;display:grid;gap:1rem">
+        <input class="field" type="text" name="contact[name]" placeholder="Name" required>
+        <input class="field" type="email" name="contact[email]" placeholder="Email" required>
+        <textarea class="field" name="contact[body]" rows="6" placeholder="Message" required></textarea>
+        <button class="btn" type="submit">Send</button>
+      </div>
+    {% endif %}
+  {% endform %}
+</section>
+{% schema %}
+{ "name": "Contact form", "settings": [] }
+{% endschema %}
