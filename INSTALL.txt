@@ -1,0 +1,21 @@
+AURA BY MS — Shopify theme
+
+1. Theme upload
+   Shopify Admin → Online Store → Themes → Add theme → Upload zip
+   Or Connect from GitHub: naeemcollections/aura-by-ms-shopify-theme
+
+2. Navigation (Main menu)
+   Perfumes → /collections/perfumes
+   Watches → /collections/watches
+   New arrivals → /collections/new-arrivals
+   The house → /pages/about
+
+3. Collections — handles EXACT:
+   perfumes, watches, new-arrivals, best-sellers
+
+4. Products → Import → products-import.csv
+   Then upload photos on each product.
+
+5. Pages: about, contact (template page.contact), shipping, returns
+
+6. Settings → Payments for real checkout

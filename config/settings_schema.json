@@ -1,0 +1,61 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Aura by MS",
+    "theme_version": "1.0.0",
+    "theme_author": "Aura by MS",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "mailto:hello@aurabyms.com"
+  },
+  {
+    "name": "Announcement",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_announcement",
+        "label": "Show announcement bar",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Text",
+        "default": "Complimentary shipping on orders over $250 · Samples with every perfume"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "main_menu",
+        "label": "Main menu",
+        "default": "main-menu"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "footer_tagline",
+        "label": "Tagline",
+        "default": "Aura by MS. A house of black-and-gold eaux de parfum and a separate collection of timepieces."
+      },
+      {
+        "type": "link_list",
+        "id": "footer_shop_menu",
+        "label": "Shop menu",
+        "default": "footer"
+      },
+      {
+        "type": "text",
+        "id": "footer_email",
+        "label": "Contact email",
+        "default": "hello@aurabyms.com"
+      }
+    ]
+  }
+]

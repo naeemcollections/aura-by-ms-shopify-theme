@@ -1,0 +1,21 @@
+{
+  "general": {
+    "meta": { "page": "Page {{ page }}" },
+    "search": { "placeholder": "Search perfumes, watches, notes…", "submit": "Search" }
+  },
+  "products": {
+    "add_to_cart": "Add to cart",
+    "buy_now": "Buy now",
+    "quick_view": "Quick view",
+    "from": "From {{ price }}",
+    "sold_out": "Sold out"
+  },
+  "cart": {
+    "title": "Your bag",
+    "empty": "Your bag is empty",
+    "checkout": "Checkout",
+    "view": "View bag",
+    "subtotal": "Subtotal",
+    "remove": "Remove"
+  }
+}
