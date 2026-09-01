@@ -1,0 +1,22 @@
+{% assign variant = product.selected_or_first_available_variant %}
+<article class="product-card">
+  <a class="product-card__media" href="{{ product.url }}">
+    {% if product.featured_image %}
+      <img src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy">
+    {% endif %}
+    <div class="badge-row">
+      {% if product.tags contains 'new' %}<span class="badge">New</span>{% endif %}
+      {% if product.tags contains 'bestseller' %}<span class="badge">Best seller</span>{% endif %}
+    </div>
+  </a>
+  <div class="product-card__body">
+    <p class="product-card__family">{{ product.type }}</p>
+    <h3 class="product-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <p class="product-card__price">{% if product.variants.size > 1 %}From {{ product.price_min | money }}{% else %}{{ product.price | money }}{% endif %}</p>
+    <div class="product-card__actions">
+      <button class="btn btn--sm" type="button" data-add-to-cart="{{ variant.id }}">Add to cart</button>
+      <button class="btn btn--outline btn--sm" type="button" data-buy-now="{{ variant.id }}">Buy now</button>
+      <button class="btn--ghost" type="button" data-quick-view="{{ product.handle }}">Quick view</button>
+    </div>
+  </div>
+</article>

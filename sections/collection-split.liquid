@@ -1,0 +1,35 @@
+<section class="split">
+  {% for block in section.blocks %}
+    <a class="split-panel" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+      {% if block.settings.image %}
+        <img src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.title | escape }}">
+      {% endif %}
+      <div class="split-shade"></div>
+      <div class="split-copy">
+        {% if block.settings.eyebrow != blank %}<p class="eyebrow">{{ block.settings.eyebrow }}</p>{% endif %}
+        <h2>{{ block.settings.title }}</h2>
+        {% if block.settings.text != blank %}<p>{{ block.settings.text }}</p>{% endif %}
+        <span class="split-cta">{{ block.settings.cta }}</span>
+      </div>
+    </a>
+  {% endfor %}
+</section>
+{% schema %}
+{
+  "name": "Collection split",
+  "max_blocks": 2,
+  "blocks": [{
+    "type": "panel",
+    "name": "Panel",
+    "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+      { "type": "text", "id": "title", "label": "Title", "default": "Perfumes" },
+      { "type": "textarea", "id": "text", "label": "Text" },
+      { "type": "text", "id": "cta", "label": "Link label", "default": "Enter the collection" },
+      { "type": "text", "id": "link", "label": "Link", "default": "/collections/perfumes" }
+    ]
+  }],
+  "presets": [{ "name": "Collection split" }]
+}
+{% endschema %}

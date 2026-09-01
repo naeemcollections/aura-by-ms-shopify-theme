@@ -1,0 +1,14 @@
+{% layout none %}
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Gift card – {{ shop.name }}</title>{{ 'base.css' | asset_url | stylesheet_tag }}</head>
+<body>
+<main class="page-prose" style="text-align:center">
+  <p class="logo-ms">MS</p>
+  <h1>Gift card</h1>
+  <p style="color:var(--gold);font-size:1.5rem">{{ gift_card.balance | money }}</p>
+  <p>{{ gift_card.code | format_code }}</p>
+  <p style="margin-top:2rem"><a class="btn" href="{{ shop.url }}">Shop Aura by MS</a></p>
+</main>
+</body>
+</html>

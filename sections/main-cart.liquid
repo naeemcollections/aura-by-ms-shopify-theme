@@ -1,0 +1,30 @@
+<div class="page-width cart-page">
+  <p class="eyebrow">Bag</p>
+  <h1>Your bag</h1>
+  {% if cart.item_count == 0 %}
+    <div class="empty"><p>Your bag is empty.</p><p style="margin-top:2rem"><a class="btn" href="/collections/perfumes">Shop perfumes</a></p></div>
+  {% else %}
+    <div class="cart-layout">
+      <div>
+        {% for item in cart.items %}
+          <div class="cart-line">
+            <a href="{{ item.url }}">{% if item.image %}<img src="{{ item.image | image_url: width: 400 }}" alt="">{% endif %}</a>
+            <div class="cart-line-body">
+              <a class="cart-line-title" href="{{ item.url }}">{{ item.product.title }}</a>
+              <p>{{ item.final_line_price | money }} · Qty {{ item.quantity }}</p>
+              <a href="{{ item.url_to_remove }}">Remove</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <aside class="cart-summary">
+        <h2>Summary</h2>
+        <p>Total {{ cart.total_price | money }}</p>
+        <a class="btn btn--full" href="/checkout" style="margin-top:1.5rem">Checkout</a>
+      </aside>
+    </div>
+  {% endif %}
+</div>
+{% schema %}
+{ "name": "Cart", "settings": [] }
+{% endschema %}
