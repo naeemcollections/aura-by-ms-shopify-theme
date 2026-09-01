@@ -1,0 +1,37 @@
+<section class="hero">
+  {% if section.settings.image %}
+    <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.image.alt | escape }}">
+  {% endif %}
+  <div class="hero-shade"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      {% if section.settings.eyebrow != blank %}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
+      <h1>{{ section.settings.heading }}</h1>
+      {% if section.settings.lede != blank %}<p class="hero-lede">{{ section.settings.lede }}</p>{% endif %}
+      <div class="hero-actions">
+        {% if section.settings.button_label != blank %}
+          <a class="btn" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+        {% endif %}
+        {% if section.settings.button_2_label != blank %}
+          <a class="btn btn--outline" href="{{ section.settings.button_2_link }}">{{ section.settings.button_2_label }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Aura by MS" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Discover Your Signature Aura" },
+    { "type": "textarea", "id": "lede", "label": "Text", "default": "Eight eaux de parfum in one black-and-gold flacon, and a separate collection of timepieces." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop perfumes" },
+    { "type": "text", "id": "button_link", "label": "Button link", "default": "/collections/perfumes" },
+    { "type": "text", "id": "button_2_label", "label": "Second button", "default": "Shop watches" },
+    { "type": "text", "id": "button_2_link", "label": "Second button link", "default": "/collections/watches" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

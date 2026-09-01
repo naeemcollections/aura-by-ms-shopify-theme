@@ -1,0 +1,45 @@
+<footer class="site-footer">
+  <div class="page-width footer-grid">
+    <div class="footer-brand">
+      <p class="logo-ms">MS</p>
+      <p>{{ settings.footer_tagline }}</p>
+      {% form 'customer', class: 'newsletter' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input class="field" type="email" name="contact[email]" placeholder="Email for private releases" required>
+        <button class="btn" type="submit">Join</button>
+      {% endform %}
+    </div>
+    <div class="footer-cols">
+      <div class="col">
+        <p class="eyebrow">Shop</p>
+        {% assign shop_menu = linklists[settings.footer_shop_menu] %}
+        {% for link in shop_menu.links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% else %}
+          <a href="/collections/perfumes">Perfumes</a>
+          <a href="/collections/watches">Watches</a>
+          <a href="/collections/new-arrivals">New arrivals</a>
+          <a href="/collections/best-sellers">Best sellers</a>
+        {% endfor %}
+      </div>
+      <div class="col">
+        <p class="eyebrow">House</p>
+        <a href="/pages/about">The house</a>
+        <a href="/pages/contact">Contact</a>
+        <a href="/pages/shipping">Shipping</a>
+        <a href="/pages/returns">Returns</a>
+      </div>
+      <div class="col">
+        <p class="eyebrow">Visit</p>
+        <p>Private appointments<br>Atelier by MS<br>{{ settings.footer_email }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-width footer-bar">
+    <p>© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+    <p>Crafted in black &amp; gold</p>
+  </div>
+</footer>
+{% schema %}
+{ "name": "Footer", "settings": [], "presets": [{ "name": "Footer" }] }
+{% endschema %}

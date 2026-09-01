@@ -1,0 +1,16 @@
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {% assign phrase = section.settings.text %}
+    <p>{{ phrase }} {{ phrase }} {{ phrase }} {{ phrase }}</p>
+    <p>{{ phrase }} {{ phrase }} {{ phrase }} {{ phrase }}</p>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Marquee",
+  "settings": [
+    { "type": "text", "id": "text", "label": "Text", "default": "Eau de Parfum  ·  Black fluted glass  ·  Gold collar  ·  Timepieces  ·  Aura by MS  ·  " }
+  ],
+  "presets": [{ "name": "Marquee" }]
+}
+{% endschema %}

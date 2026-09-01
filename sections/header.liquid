@@ -1,0 +1,58 @@
+<header class="site-header">
+  <div class="header-bar">
+    <div class="header-left">
+      <button class="icon-btn menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="nav-desktop">
+        {% assign main_menu = linklists[settings.main_menu] %}
+        {% for link in main_menu.links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% else %}
+          <a href="/collections/perfumes">Perfumes</a>
+          <a href="/collections/watches">Watches</a>
+          <a href="/collections/new-arrivals">New arrivals</a>
+          <a href="/pages/about">The house</a>
+        {% endfor %}
+      </nav>
+    </div>
+    <a class="logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home">
+      <span class="logo-ms">MS</span>
+      <span class="logo-word">Aura by MS</span>
+    </a>
+    <div class="header-right">
+      <button class="icon-btn" type="button" data-search-toggle aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+      <button class="icon-btn" type="button" data-cart-open aria-label="Bag">
+        <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V7a3 3 0 016 0v1"/></svg>
+        <span class="cart-count" data-cart-count {% if cart.item_count == 0 %}hidden{% endif %}>{{ cart.item_count }}</span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" data-mobile-nav>
+    {% assign main_menu = linklists[settings.main_menu] %}
+    {% for link in main_menu.links %}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    {% else %}
+      <a href="/collections/perfumes">Perfumes</a>
+      <a href="/collections/watches">Watches</a>
+      <a href="/collections/new-arrivals">New arrivals</a>
+      <a href="/pages/about">The house</a>
+    {% endfor %}
+    <a href="/pages/contact">Contact</a>
+  </nav>
+  <div class="search-panel" data-search-panel>
+    <form class="search-form" action="{{ routes.search_url }}" method="get" role="search">
+      <input type="hidden" name="type" value="product">
+      <input class="field" type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms | escape }}">
+      <button class="btn btn--sm" type="submit">{{ 'general.search.submit' | t }}</button>
+      <button class="icon-btn" type="button" data-search-close aria-label="Close search">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </form>
+  </div>
+</header>
+{% schema %}
+{ "name": "Header", "settings": [], "presets": [{ "name": "Header" }] }
+{% endschema %}

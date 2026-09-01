@@ -1,0 +1,11 @@
+{% if settings.show_announcement and settings.announcement_text != blank %}
+  <div class="announcement">{{ settings.announcement_text }}</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [],
+  "presets": [{ "name": "Announcement bar" }]
+}
+{% endschema %}
