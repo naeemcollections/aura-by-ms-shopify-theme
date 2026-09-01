@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      {{ page_title }}{% if current_tags %} – {{ current_tags | join: ', ' }}{% endif %}{% if current_page != 1 %} – Page {{ current_page }}{% endif %}
+      {% unless page_title contains shop.name %} – {{ shop.name }}{% endunless %}
+    </title>
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ 'favicon.svg' | asset_url }}" type="image/svg+xml">
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body>
+    {% sections 'header-group' %}
+    <main id="MainContent">
+      {{ content_for_layout }}
+    </main>
+    {% sections 'footer-group' %}
+    <div class="drawer-root" data-cart-drawer hidden>
+      <button class="drawer-backdrop" type="button" data-cart-close aria-label="Close bag"></button>
+      <aside class="drawer" role="dialog" aria-label="Bag">
+        <div class="drawer-head">
+          <h2>Your bag</h2>
+          <button class="icon-btn" type="button" data-cart-close aria-label="Close bag">
+            <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <div class="drawer-body" data-cart-body></div>
+        <div class="drawer-foot" data-cart-foot>
+          <div class="totals">
+            <div><span class="muted">Subtotal</span><span data-cart-subtotal></span></div>
+          </div>
+          <a class="btn btn--full" href="/checkout" style="margin-top:1rem">Checkout</a>
+          <a class="btn btn--outline btn--full" href="{{ routes.cart_url }}" style="margin-top:.5rem">View bag</a>
+        </div>
+      </aside>
+    </div>
+    <div class="modal-root" data-quick-root hidden>
+      <button class="modal-backdrop" type="button" data-quick-close aria-label="Close"></button>
+      <div class="modal" role="dialog" aria-modal="true" aria-label="Quick view">
+        <button class="modal-close" type="button" data-quick-close aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+        <div data-quick-content></div>
+      </div>
+    </div>
+    <script>window.theme = { moneyFormat: {{ shop.money_format | json }} };</script>
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  </body>
+</html>
